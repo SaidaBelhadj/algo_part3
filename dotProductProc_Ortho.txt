@@ -1,0 +1,43 @@
+PROCEDURE dot_product_proc (V1 : ARRAY OF FLOAT, V2 : ARRAY OF FLOAT , VAR ps : FLOAT)
+VAR 
+BEGIN 
+   ps := V1[0]*V2[0] + V1[1]*V2[1] + V1[2]*V2[2];   
+   Write ("Dot product :  ", ps);    
+END
+
+ALGORITHM dotProductProc_Ortho
+v1,v2 : ARRAY OF FLOAT;
+ps :FLOAT;
+i, n : INTEGER;
+
+VAR 
+BEGIN 
+Read (v1);
+Read (v2);
+//affichage V1
+ Write ("V1:"); 
+ FOR i FROM 0 TO v1.length-1 STEP 1 DO
+   Write (" ", v1[i]);      
+ END_FOR
+
+ //affichage V2
+ Write ("V2:"); 
+ FOR i FROM 0 TO v2.length-1 STEP 1 DO
+   Write (" ", v2[i]);      
+ END_FOR
+
+
+//verif if orthoganal or not 
+ FOR i FROM 1 TO n STEP 1 DO
+   Read(vect1);
+   Read(vect2);
+   dot_product_proc(vect1,vect2, ps);
+
+    IF (ps =0)
+     Write ("the two vectors given are orthogonal !!");  
+     ELSE 
+     Write ("the two vectors given are not  orthogonal !!"); 
+   END_IF
+ END_FOR
+
+END 
